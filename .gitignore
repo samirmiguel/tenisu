@@ -1,0 +1,21 @@
+# Build outputs
+**/bin/
+**/obj/
+
+# User-specific files
+*.user
+*.suo
+.vs/
+
+# Rider
+.idea/
+
+# NuGet
+*.nupkg
+nuget.config
+
+# dotnet publish
+publish/
+
+# Secrets
+appsettings.secrets.json
