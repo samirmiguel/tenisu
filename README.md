@@ -40,7 +40,7 @@ dotnet run --project src/Tenisu.API
 ```
 
 L'API démarre sur `https://localhost:5001` / `http://localhost:5000`.  
-L'interface Swagger est disponible sur `http://localhost:5000/swagger` (environnement Development uniquement).
+L'interface Swagger est disponible sur `http://localhost:5000/swagger` (environnement développement) et sur `https://tenisu-api.blackbay-ed1c0316.northeurope.azurecontainerapps.io/swagger/index.html` (environnement de production)
 
 ---
 
@@ -124,11 +124,23 @@ chmod +x azure-deploy.sh
 
 Le script effectue les opérations suivantes :
 1. Connexion via `az login`
-2. Création du groupe de ressources `rg-tenisu`
-3. Création d'un Azure Container Registry `tenisuacr`
-4. Construction et publication de l'image Docker via ACR Tasks
-5. Création d'un environnement Container Apps et déploiement de l'application sur le port 8080
-6. Affichage de l'URL publique
+2. Enregistrement des providers Azure nécessaires
+3. Création du groupe de ressources `rg-tenisu`
+4. Création d'un Azure Container Registry `tenisuacr`
+5. Construction et publication de l'image Docker en local puis push vers l'ACR
+6. Création d'un environnement Container Apps et déploiement sur le port 8080
+7. Affichage de l'URL publique
+
+### URL de production
+
+| Route | URL |
+|-------|-----|
+| Joueurs | https://tenisu-api.blackbay-ed1c0316.northeurope.azurecontainerapps.io/api/players |
+| Filtre par sexe | https://tenisu-api.blackbay-ed1c0316.northeurope.azurecontainerapps.io/api/players?sex=M |
+| Joueur par ID | https://tenisu-api.blackbay-ed1c0316.northeurope.azurecontainerapps.io/api/players/17 |
+| Statistiques | https://tenisu-api.blackbay-ed1c0316.northeurope.azurecontainerapps.io/api/players/stats |
+| Swagger UI | https://tenisu-api.blackbay-ed1c0316.northeurope.azurecontainerapps.io/swagger |
+| Health | https://tenisu-api.blackbay-ed1c0316.northeurope.azurecontainerapps.io/health |
 
 ---
 
